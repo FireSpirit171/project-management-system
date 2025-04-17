@@ -1,0 +1,34 @@
+.board {
+  width: 80%;
+  margin: 100px 10% 0 10%;
+  display: grid;
+  grid-template-areas: "todo inprogress done";
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0px;
+}
+
+.column.middle {
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.column {
+  border: 2px solid black;
+}
+
+.title {
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 2px solid black;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.tasks {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  gap: 20px;
+}
