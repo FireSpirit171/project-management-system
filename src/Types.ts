@@ -29,4 +29,5 @@ export interface Task {
     email: string;
     avatarUrl: string;
   };
+  boardName: string;
 }

@@ -1,8 +1,20 @@
 .card {
   border: 1px solid aqua;
-  border-radius: 5px;
+  border-radius: 10px;
   width: 80%;
-  height: 50px;
+  height: 80px;
+  padding: 0 20px;
   background-color: white;
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+}
+
+.cardBody {
+  font-family: "RussoOne";
+  font-size: 20px;
+  text-decoration: none;
+  margin-right: 30px;
+  color: black;
 }

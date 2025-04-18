@@ -10,8 +10,9 @@ const BoardCard = (board: Board) => {
       className={styles.card}
       onClick={() => navigate(`/boards/${board.id}`)}
     >
-      <span>{board.id}</span>
-      <span>{board.name}</span>
+      <span className={styles.cardBody}>
+        {board.id}. {board.name}
+      </span>
     </article>
   );
 };
