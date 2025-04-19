@@ -29,5 +29,6 @@ export interface Task {
     email: string;
     avatarUrl: string;
   };
+  boardId: number | null;
   boardName: string;
 }

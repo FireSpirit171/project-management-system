@@ -21,16 +21,32 @@ header {
   color: black;
 }
 
-button {
+.button {
+  display: flex;
+  box-sizing: border-box;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  color: white;
+  padding: 5px 20px;
+  min-width: fit-content;
   width: fit-content;
-  border-radius: 5px;
-  height: 30px;
-  cursor: pointer;
+  min-height: 35px;
+  height: fit-content;
+  font-style: normal;
+  border-radius: 4px;
+  border: none;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 600;
+  user-select: none;
+  cursor: pointer;
 }
 
-button:hover {
-  background-color: grey;
-  color: white;
+.button.green {
+  background-color: #1cd36f;
+}
+
+.button.green:hover {
+  background-color: #099447;
 }

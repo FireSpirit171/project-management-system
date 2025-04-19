@@ -1,6 +1,6 @@
 .board {
   width: 80%;
-  margin: 100px 10% 0 10%;
+  margin: 50px 10% 0 10%;
   display: grid;
   grid-template-areas: "todo inprogress done";
   grid-template-columns: 1fr 1fr 1fr;

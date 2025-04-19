@@ -27,7 +27,10 @@ const Header = () => {
         </NavLink>
       </nav>
 
-      <button onClick={() => dispatch(showModal({ type: "createTask" }))}>
+      <button
+        className={`${styles.button} ${styles.green}`}
+        onClick={() => dispatch(showModal({ type: "createTask" }))}
+      >
         Создать задачу
       </button>
     </header>

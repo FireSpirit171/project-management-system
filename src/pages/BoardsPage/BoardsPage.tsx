@@ -15,11 +15,11 @@ const BoardsPage = () => {
   }, []);
 
   return (
-    <section className={styles.boards}>
+    <main className={styles.boards}>
       {boards.map((board) => (
         <BoardCard key={board.id} {...board} />
       ))}
-    </section>
+    </main>
   );
 };
 

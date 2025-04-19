@@ -1,40 +1,7 @@
-form {
+.form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 20px;
-}
-
-.title {
-  font-family: "RussoOne";
-  font-size: 24px;
-  text-decoration: none;
-  margin-right: 30px;
-  font-weight: 100;
-  color: black;
-}
-
-.input {
-  border: 5px solid #eeeeee;
-  background: white;
-  padding: 7px 20px 7px 20px;
-  font-size: 16px;
-  font-family: monospace;
-  cursor: pointer;
-  outline: none;
-}
-
-.textarea {
-  height: 200px;
-  resize: none;
-
-  border: 5px solid #eeeeee;
-  background: white;
-  padding: 7px 20px 7px 20px;
-  font-size: 16px;
-  font-family: monospace;
-  cursor: pointer;
-  outline: none;
 }
 
 .select {
@@ -97,11 +64,6 @@ form {
   justify-content: space-between;
 }
 
-.buttonWrap {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .button {
   display: flex;
   box-sizing: border-box;
@@ -132,10 +94,10 @@ form {
   background-color: #099447;
 }
 
-.button.orange {
-  background-color: #fdb665;
+.button.red {
+  background-color: #ca402e;
 }
 
-.button.orange:hover {
-  background-color: #dd902b;
+.button.red:hover {
+  background-color: #bb210c;
 }

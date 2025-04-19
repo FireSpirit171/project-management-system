@@ -9,10 +9,17 @@ const EditTaskForm = ({ task }: EditTaskFormProps) => {
   return (
     <form>
       <h2 className={styles.title}>Редактирование задачи</h2>
-      <input type="text" placeholder="Название" value={task!.title} />
-      <textarea placeholder="Описание">{task!.description}</textarea>
+      <input
+        className={styles.input}
+        type="text"
+        placeholder="Название"
+        value={task!.title}
+      />
+      <textarea className={styles.textarea} placeholder="Описание">
+        {task!.description}
+      </textarea>
 
-      <label>
+      <label className={styles.label}>
         <select id="project" name="project">
           <option value="0">{task!.boardName}</option>
           <option value="1">Amsterdam</option>
@@ -23,7 +30,7 @@ const EditTaskForm = ({ task }: EditTaskFormProps) => {
         </select>
       </label>
 
-      <label>
+      <label className={styles.label}>
         <select id="priorite" name="priorite">
           <option value="0">Приоритет</option>
           <option value="1">Низкий</option>
@@ -32,7 +39,7 @@ const EditTaskForm = ({ task }: EditTaskFormProps) => {
         </select>
       </label>
 
-      <label>
+      <label className={styles.label}>
         <select id="status" name="status">
           <option value="0">Статус</option>
           <option value="1">Не начато</option>
@@ -41,7 +48,7 @@ const EditTaskForm = ({ task }: EditTaskFormProps) => {
         </select>
       </label>
 
-      <label>
+      <label className={styles.label}>
         <select id="employee" name="employee">
           <option value="0">{task!.assignee.fullName}</option>
           <option value="1">Amsterdam</option>
@@ -52,9 +59,22 @@ const EditTaskForm = ({ task }: EditTaskFormProps) => {
         </select>
       </label>
 
-      <div className={styles.buttonContainer}>
-        <button className={styles.button}>Обновить</button>
-      </div>
+      {task?.boardId ? (
+        <div className={styles.buttonContainer}>
+          <button className={`${styles.button} ${styles.orange}`}>
+            Перейти на доску
+          </button>
+          <button className={`${styles.button} ${styles.green}`}>
+            Обновить
+          </button>
+        </div>
+      ) : (
+        <div className={styles.buttonWrap}>
+          <button className={`${styles.button} ${styles.green}`}>
+            Обновить
+          </button>
+        </div>
+      )}
     </form>
   );
 };

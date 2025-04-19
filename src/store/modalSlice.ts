@@ -3,7 +3,7 @@ import { Task } from "../Types";
 
 interface ModalState {
   isVisible: boolean;
-  type: "createTask" | "editTask" | null;
+  type: "createTask" | "editTask" | "filter" | null;
   payload: Task | null;
 }
 
@@ -20,7 +20,7 @@ const modalSlice = createSlice({
     showModal: (
       state,
       action: PayloadAction<{
-        type: "createTask" | "editTask";
+        type: "createTask" | "editTask" | "filter";
         payload?: Task | null;
       }>
     ) => {

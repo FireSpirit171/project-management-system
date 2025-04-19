@@ -4,10 +4,15 @@ const CreateTaskForm = () => {
   return (
     <form>
       <h2 className={styles.title}>Создание задачи</h2>
-      <input type="text" placeholder="Название" />
-      <textarea name="" id="" placeholder="Описание"></textarea>
+      <input className={styles.input} type="text" placeholder="Название" />
+      <textarea
+        className={styles.textarea}
+        name=""
+        id=""
+        placeholder="Описание"
+      ></textarea>
 
-      <label>
+      <label className={styles.label}>
         <select id="project" name="project">
           <option value="0">Проект</option>
           <option value="1">Amsterdam</option>
@@ -18,7 +23,7 @@ const CreateTaskForm = () => {
         </select>
       </label>
 
-      <label>
+      <label className={styles.label}>
         <select id="priorite" name="priorite">
           <option value="0">Приоритет</option>
           <option value="1">Низкий</option>
@@ -27,7 +32,7 @@ const CreateTaskForm = () => {
         </select>
       </label>
 
-      <label>
+      <label className={styles.label}>
         <select id="status" name="status">
           <option value="0">Статус</option>
           <option value="1">Не начато</option>
@@ -36,8 +41,8 @@ const CreateTaskForm = () => {
         </select>
       </label>
 
-      <label>
-        <select id="project" name="project">
+      <label className={styles.label}>
+        <select id="employee" name="employee">
           <option value="0">Исполнитель</option>
           <option value="1">Amsterdam</option>
           <option value="2">Buenos Aires</option>
