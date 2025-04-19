@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { Task } from "../../Types";
+import { Task, Board, User } from "../../Types";
 import styles from "./EditTaskForm.module.css";
 import { useDispatch } from "react-redux";
 import { hideModal } from "../../store/modalSlice";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 interface EditTaskFormProps {
   task: Task | null;
@@ -11,6 +13,23 @@ interface EditTaskFormProps {
 const EditTaskForm = ({ task }: EditTaskFormProps) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const [boards, setBoards] = useState<Board[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
+
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8080/api/v1/boards")
+      .then((res) => setBoards(res.data.data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8080/api/v1/users")
+      .then((res) => setUsers(res.data.data))
+      .catch((err) => console.error(err));
+  }, []);
 
   const goToBoard = (boardId: number | null) => {
     dispatch(hideModal());
@@ -33,13 +52,11 @@ const EditTaskForm = ({ task }: EditTaskFormProps) => {
       ></textarea>
 
       <label className={styles.label}>
-        <select id="project" name="project">
-          <option value="0">{task!.boardName}</option>
-          <option value="1">Amsterdam</option>
-          <option value="2">Buenos Aires</option>
-          <option value="3">Delhi</option>
-          <option value="4">Hong Kong</option>
-          <option value="5">London</option>
+        <select id="boards" name="boards">
+          <option value="0">Проект</option>
+          {boards.map((board: Board) => (
+            <option value={board.id}>{board.name}</option>
+          ))}
         </select>
       </label>
 
@@ -63,12 +80,12 @@ const EditTaskForm = ({ task }: EditTaskFormProps) => {
 
       <label className={styles.label}>
         <select id="employee" name="employee">
-          <option value="0">{task!.assignee.fullName}</option>
-          <option value="1">Amsterdam</option>
-          <option value="2">Buenos Aires</option>
-          <option value="3">Delhi</option>
-          <option value="4">Hong Kong</option>
-          <option value="5">London</option>
+          <option value="0">Исполнитель</option>
+          {users.map((user: User) => (
+            <option key={user.id} value={user.id}>
+              {user.fullName}
+            </option>
+          ))}
         </select>
       </label>
 

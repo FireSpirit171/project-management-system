@@ -6,6 +6,7 @@ import styles from "./IssuesPage.module.css";
 import { useDispatch } from "react-redux";
 import { showModal } from "../../store/modalSlice";
 import Filter from "../../components/Filter/Filter";
+import { useLocation } from "react-router-dom";
 
 const IssuesPage = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -17,6 +18,9 @@ const IssuesPage = () => {
   const [selectedBoardId, setSelectedBoardId] = useState<string>("0");
 
   const dispatch = useDispatch();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const highlightId = Number(params.get("highlight"));
 
   useEffect(() => {
     axios
@@ -26,7 +30,7 @@ const IssuesPage = () => {
         setFilteredTasks(res.data.data);
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, [highlightId]);
 
   const filterTasks = (
     baseTasks: Task[],
@@ -111,7 +115,11 @@ const IssuesPage = () => {
 
       <section className={styles.list}>
         {filteredTasks.map((task: Task) => (
-          <LongTask key={task.id} task={task} />
+          <LongTask
+            key={task.id}
+            task={task}
+            highlight={task.id === highlightId}
+          />
         ))}
       </section>
 

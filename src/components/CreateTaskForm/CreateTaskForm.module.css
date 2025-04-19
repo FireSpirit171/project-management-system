@@ -120,3 +120,9 @@ form {
   cursor: pointer;
   transition: transform 0.1s, box-shadow 0.1s, background-color 0.1s;
 }
+
+.userContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
