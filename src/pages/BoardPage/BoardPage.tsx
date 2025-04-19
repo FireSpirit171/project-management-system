@@ -85,7 +85,6 @@ const BoardPage = () => {
     setTasksByDroppableId(source.droppableId, sourceTasks);
     setTasksByDroppableId(destination.droppableId, destTasks);
 
-    // Отправка на сервер
     axios
       .put(`http://127.0.0.1:8080/api/v1/tasks/updateStatus/${movedTask.id}`, {
         status: statusMap[destination.droppableId],

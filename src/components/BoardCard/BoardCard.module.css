@@ -2,13 +2,14 @@
   border: 1px solid aqua;
   border-radius: 10px;
   width: 80%;
-  height: 80px;
-  padding: 0 20px;
+  height: 120px;
+  padding: 0 10% 0 20px;
   background-color: white;
   cursor: pointer;
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .cardBody {
@@ -17,4 +18,79 @@
   text-decoration: none;
   margin-right: 30px;
   color: black;
+}
+
+.circleDiagram {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+}
+
+.circleSvg {
+  transform: rotate(-90deg);
+}
+
+.inside {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+}
+
+.table {
+  margin: 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+}
+
+.table table {
+  border-collapse: collapse;
+}
+
+.table tr {
+  display: flex;
+  align-items: center;
+}
+
+.table td {
+  display: flex;
+  align-items: center;
+  padding: 0.2em 0.4em;
+  border: none;
+}
+
+.table td:first-child {
+  min-width: 4em;
+  font-weight: bold;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.table td:first-child::after {
+  content: "%";
+  margin-left: 0.2em;
+}
+
+.table td:first-child div {
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  margin-right: 0.5em;
+}
+
+.chartContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.circleWrapper {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
 }
