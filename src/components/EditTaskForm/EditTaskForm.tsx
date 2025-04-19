@@ -1,11 +1,22 @@
+import { useNavigate } from "react-router-dom";
 import { Task } from "../../Types";
 import styles from "./EditTaskForm.module.css";
+import { useDispatch } from "react-redux";
+import { hideModal } from "../../store/modalSlice";
 
 interface EditTaskFormProps {
   task: Task | null;
 }
 
 const EditTaskForm = ({ task }: EditTaskFormProps) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const goToBoard = (boardId: number | null) => {
+    dispatch(hideModal());
+    navigate(`/boards/${boardId}`);
+  };
+
   return (
     <form>
       <h2 className={styles.title}>Редактирование задачи</h2>
@@ -13,11 +24,13 @@ const EditTaskForm = ({ task }: EditTaskFormProps) => {
         className={styles.input}
         type="text"
         placeholder="Название"
-        value={task!.title}
+        defaultValue={task!.title}
       />
-      <textarea className={styles.textarea} placeholder="Описание">
-        {task!.description}
-      </textarea>
+      <textarea
+        className={styles.textarea}
+        placeholder="Описание"
+        defaultValue={task!.description}
+      ></textarea>
 
       <label className={styles.label}>
         <select id="project" name="project">
@@ -61,7 +74,13 @@ const EditTaskForm = ({ task }: EditTaskFormProps) => {
 
       {task?.boardId ? (
         <div className={styles.buttonContainer}>
-          <button className={`${styles.button} ${styles.orange}`}>
+          <button
+            className={`${styles.button} ${styles.orange}`}
+            onClick={(e) => {
+              e.preventDefault();
+              goToBoard(task.boardId);
+            }}
+          >
             Перейти на доску
           </button>
           <button className={`${styles.button} ${styles.green}`}>

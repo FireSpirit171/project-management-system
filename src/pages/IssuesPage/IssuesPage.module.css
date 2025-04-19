@@ -6,7 +6,7 @@
   margin: 20px 8%;
 
   overflow-y: scroll;
-  height: 76vh;
+  height: calc(80vh - 50px);
 }
 
 .filters {
