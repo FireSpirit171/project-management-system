@@ -39,7 +39,7 @@ const Filter = ({
         >
           <option value="0">Статус</option>
           <option value="Backlog">Не начато</option>
-          <option value="In Progress">В разработке</option>
+          <option value="InProgress">В разработке</option>
           <option value="Done">Готово</option>
         </select>
       </label>
